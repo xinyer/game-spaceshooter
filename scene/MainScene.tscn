@@ -7,4 +7,8 @@
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+
+[node name="EnemyTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="create_bullet" from="Player" to="." method="_on_Player_create_bullet"]
+[connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
