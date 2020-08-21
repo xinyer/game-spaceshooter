@@ -26,15 +26,8 @@ func _on_EnemyTimer_timeout():
 	enemy_instance.global_position = Vector2(rand_range(0, get_viewport_rect().size.x), 0)
 	pass
 
-func _on_Create_enemy_destory_particle(destroy_paticles, position):
-	var destory_particles_instance = destroy_paticles.instance()
-	add_child(destory_particles_instance)
-	destory_particles_instance.global_position = position
-	pass
-
-
-func _on_Create_player_destory_particles(destroy_paticles, position):
-	var instance = destroy_paticles.instance()
-	add_child(instance)
-	instance.global_position = position
+func _node_instance(node, position):
+	var node_instance = node.instance()
+	add_child(node_instance)
+	node_instance.global_position = position
 	pass

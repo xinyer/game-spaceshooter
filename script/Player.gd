@@ -1,16 +1,14 @@
 extends Sprite
 
 
-signal create_bullet(bullet, pos)
-signal create_player_destory_particles(destroy_paticles, position)
+signal node_instance(bullet, pos)
 
 var bullet = preload("res://scene/Bullet.tscn")
 var destory_particles = preload("res://scene/PlayerDestoryParticles.tscn")
 
 func _ready():
 	if Global.world != null:
-		print("bbb")
-		connect("create_player_destory_particles", Global.world, "_on_Create_player_destory_particle")
+		connect("node_instance", Global.world, "_node_instance")
 	pass
 
 func _process(delta):
@@ -19,12 +17,12 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("shoot"):
-		emit_signal("create_bullet", bullet, global_position)
+		emit_signal("node_instance", bullet, global_position)
 	pass
 
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("Enemy"):
-		emit_signal("create_player_destory_particles", destory_particles, global_position)
+		emit_signal("node_instance", destory_particles, global_position)
 		queue_free()
 	pass
