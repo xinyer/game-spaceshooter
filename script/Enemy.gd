@@ -17,7 +17,7 @@ func _process(delta):
 
 
 func _on_Hitbox_area_entered(area):
-	if area.is_in_group("Bullet"):
+	if area.is_in_group("Bullet") or area.is_in_group("Player"):
 		emit_signal("create_enemy_destory_particles", destory_particles, global_position)
 		queue_free()
 	pass

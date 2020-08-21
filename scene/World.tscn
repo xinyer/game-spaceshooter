@@ -12,4 +12,5 @@ position = Vector2( 45.9445, 148.787 )
 [node name="EnemyTimer" type="Timer" parent="."]
 autostart = true
 [connection signal="create_bullet" from="Player" to="." method="_on_Player_create_bullet"]
+[connection signal="create_player_destory_particles" from="Player" to="." method="_on_Create_player_destory_particles"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]

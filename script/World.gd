@@ -31,3 +31,10 @@ func _on_Create_enemy_destory_particle(destroy_paticles, position):
 	add_child(destory_particles_instance)
 	destory_particles_instance.global_position = position
 	pass
+
+
+func _on_Create_player_destory_particles(destroy_paticles, position):
+	var instance = destroy_paticles.instance()
+	add_child(instance)
+	instance.global_position = position
+	pass
