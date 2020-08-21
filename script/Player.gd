@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Sprite
 
 
 signal create_bullet(bullet, pos)
@@ -12,4 +12,10 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("shoot"):
 		emit_signal("create_bullet", bullet, global_position)
+	pass
+
+
+func _on_HitBox_area_entered(area):
+	if area.is_in_group("Enemy"):
+		queue_free()
 	pass
