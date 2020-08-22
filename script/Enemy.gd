@@ -20,5 +20,6 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Bullet") or area.is_in_group("Player"):
 		AudioManager.play("Explosion")
 		emit_signal("node_instance", destory_particles, global_position)
+		Global.score += 100
 		queue_free()
 	pass
