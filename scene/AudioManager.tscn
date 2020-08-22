@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Sounds/shoot.wav" type="AudioStream" id=1]
+[ext_resource path="res://assets/Sounds/hit.wav" type="AudioStream" id=2]
+[ext_resource path="res://assets/Sounds/explosion.wav" type="AudioStream" id=3]
+[ext_resource path="res://script/AudioManager.gd" type="Script" id=4]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource( 4 )
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

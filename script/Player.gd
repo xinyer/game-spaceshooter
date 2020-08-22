@@ -25,13 +25,16 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("shoot"):
 		emit_signal("node_instance", bullet, global_position)
+		AudioManager.play("Shoot")
 	pass
 
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("Enemy"):
+		AudioManager.play("Hit")
 		Global.player_health -= 1
 		if (Global.player_health == 0):
+			AudioManager.play("Explosion")
 			emit_signal("node_instance", destory_particles, global_position)
 			queue_free()
 	pass
