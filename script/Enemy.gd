@@ -1,6 +1,9 @@
 extends Sprite
 
-var speed = 40
+export(int) var speed = 40
+export(int) var point = 100
+export(int) var health = 1
+
 var destory_particles = preload("res://scene/EnemyDestoryParticles.tscn")
 
 signal node_instance(destroy_paticles, position)
@@ -18,8 +21,10 @@ func _process(delta):
 
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Bullet") or area.is_in_group("Player"):
-		AudioManager.play("Explosion")
-		emit_signal("node_instance", destory_particles, global_position)
-		Global.score += 100
-		queue_free()
+		health -= 1
+		if health <= 0:
+			AudioManager.play("Explosion")
+			emit_signal("node_instance", destory_particles, global_position)
+			Global.score += point
+			queue_free()
 	pass

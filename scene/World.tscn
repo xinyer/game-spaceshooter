@@ -22,6 +22,7 @@ script = ExtResource( 2 )
 position = Vector2( 46.2487, 143.919 )
 
 [node name="EnemyTimer" type="Timer" parent="."]
+wait_time = 0.6
 autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]

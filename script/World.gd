@@ -1,7 +1,6 @@
 extends Node2D
 
-
-var enemy = preload("res://scene/Enemy.tscn")
+var enemys = [preload("res://scene/Enemy1.tscn"), preload("res://scene/Enemy2.tscn"), preload("res://scene/Enemy3.tscn")]
 
 
 func _ready():
@@ -21,9 +20,10 @@ func _on_Player_create_bullet(bullet, pos):
 
 
 func _on_EnemyTimer_timeout():
-	var enemy_instance = enemy.instance()
+	var index = randi() % enemys.size()
+	var enemy_instance = enemys[index].instance()
 	add_child(enemy_instance)
-	enemy_instance.global_position = Vector2(rand_range(0, get_viewport_rect().size.x), 0)
+	enemy_instance.global_position = Vector2(rand_range(10, get_viewport_rect().size.x-10), 0)
 	pass
 
 func _node_instance(node, position):
