@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://script/DestoryParticles.gd" type="Script" id=1]
 
@@ -6,22 +6,25 @@
 max_value = 2.0
 _data = [ Vector2( 0.00165838, 2 ), 0.0, 0.0, 0, 0, Vector2( 0.500829, 2 ), 0.0, 0.0, 0, 0, Vector2( 0.998342, 0.0204082 ), 0.0, 0.0, 0, 0 ]
 
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.941176, 0.0823529, 0.462745, 1, 1, 1, 1, 1 )
+
 [node name="PlayerDestoryParticles" type="CPUParticles2D"]
-amount = 12
+amount = 50
 lifetime = 0.6
 explosiveness = 1.0
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
 gravity = Vector2( 0, 0 )
-initial_velocity = 30.0
+initial_velocity = 20.0
 initial_velocity_random = 0.5
 angular_velocity = 200.0
 angular_velocity_random = 1.0
 angle = 45.0
 angle_random = 1.0
 scale_amount_curve = SubResource( 1 )
-color = Color( 1, 0, 0, 1 )
+color_ramp = SubResource( 2 )
 script = ExtResource( 1 )
 
 [node name="Timer" type="Timer" parent="."]
