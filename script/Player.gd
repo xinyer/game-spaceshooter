@@ -33,10 +33,12 @@ func _on_HitBox_area_entered(area):
 	if area.is_in_group("Enemy"):
 		AudioManager.play("Hit")
 		Global.player_health -= 1
+		$HitAnimationPlayer.play("hit")
 		if (Global.player_health == 0):
 			AudioManager.play("Explosion")
 			emit_signal("node_instance", destory_particles, global_position)
 			if Global.camera != null:
 				Global.camera.small_shake()
 			queue_free()
+			get_tree().change_scene("res://scene/Main.tscn")
 	pass
