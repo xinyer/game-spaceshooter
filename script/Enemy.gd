@@ -25,6 +25,8 @@ func _on_Hitbox_area_entered(area):
 		if health <= 0:
 			AudioManager.play("Explosion")
 			emit_signal("node_instance", destory_particles, global_position)
+			if Global.camera != null:
+				Global.camera.small_shake()
 			Global.score += point
 			queue_free()
 	pass

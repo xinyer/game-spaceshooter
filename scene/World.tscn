@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/World.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://script/ParallaxBackground.gd" type="Script" id=8]
 [ext_resource path="res://assets/Background/Star_background_2.png" type="Texture" id=9]
 [ext_resource path="res://assets/Background/Star_background_3.png" type="Texture" id=10]
+[ext_resource path="res://scene/ScreenShake.tscn" type="PackedScene" id=11]
+[ext_resource path="res://script/Camera2D.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 8
@@ -85,5 +87,12 @@ motion_mirroring = Vector2( 0, 160 )
 visible = false
 texture = ExtResource( 10 )
 centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+script = ExtResource( 12 )
+
+[node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
 [connection signal="node_instance" from="Player" to="." method="_node_instance"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]

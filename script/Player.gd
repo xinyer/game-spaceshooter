@@ -36,5 +36,7 @@ func _on_HitBox_area_entered(area):
 		if (Global.player_health == 0):
 			AudioManager.play("Explosion")
 			emit_signal("node_instance", destory_particles, global_position)
+			if Global.camera != null:
+				Global.camera.small_shake()
 			queue_free()
 	pass
