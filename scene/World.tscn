@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://script/World.gd" type="Script" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://script/HealthSprite.gd" type="Script" id=4]
 [ext_resource path="res://assets/Font/pixelated.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://script/UI.gd" type="Script" id=6]
-[ext_resource path="res://assets/Background/Star_background_1.png" type="Texture" id=7]
-[ext_resource path="res://script/ParallaxBackground.gd" type="Script" id=8]
-[ext_resource path="res://assets/Background/Star_background_2.png" type="Texture" id=9]
-[ext_resource path="res://assets/Background/Star_background_3.png" type="Texture" id=10]
+[ext_resource path="res://scene/Background.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scene/ScreenShake.tscn" type="PackedScene" id=11]
 [ext_resource path="res://script/Camera2D.gd" type="Script" id=12]
 
@@ -21,7 +18,7 @@ font_data = ExtResource( 5 )
 script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 46.2487, 143.919 )
+position = Vector2( 46, 140 )
 
 [node name="EnemyTimer" type="Timer" parent="."]
 wait_time = 0.6
@@ -29,6 +26,8 @@ autostart = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 6 )
+
+[node name="Background" parent="UI" instance=ExtResource( 7 )]
 
 [node name="HealthSprite" type="Sprite" parent="UI"]
 position = Vector2( 77.2841, 155.329 )
@@ -52,41 +51,6 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="StarBackground1" type="ParallaxBackground" parent="UI"]
-script = ExtResource( 8 )
-speed = 20
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="UI/StarBackground1"]
-motion_mirroring = Vector2( 0, 160 )
-
-[node name="Sprite" type="Sprite" parent="UI/StarBackground1/ParallaxLayer"]
-texture = ExtResource( 7 )
-centered = false
-
-[node name="StarBackground2" type="ParallaxBackground" parent="UI"]
-script = ExtResource( 8 )
-speed = 40
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="UI/StarBackground2"]
-motion_mirroring = Vector2( 0, 160 )
-
-[node name="Sprite" type="Sprite" parent="UI/StarBackground2/ParallaxLayer"]
-texture = ExtResource( 9 )
-centered = false
-
-[node name="StarBackground3" type="ParallaxBackground" parent="UI"]
-script = ExtResource( 8 )
-speed = 60
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="UI/StarBackground3"]
-visible = false
-motion_mirroring = Vector2( 0, 160 )
-
-[node name="Sprite" type="Sprite" parent="UI/StarBackground3/ParallaxLayer"]
-visible = false
-texture = ExtResource( 10 )
-centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0

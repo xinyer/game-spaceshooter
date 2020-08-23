@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/Background/Star_background_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/Background/Star_background_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Background/Star_background_3.png" type="Texture" id=3]
+[ext_resource path="res://script/ParallaxBackground.gd" type="Script" id=4]
+
+[node name="Background" type="Node"]
+
+[node name="StarBackground1" type="ParallaxBackground" parent="."]
+script = ExtResource( 4 )
+speed = 20
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="StarBackground1"]
+motion_mirroring = Vector2( 0, 160 )
+
+[node name="Sprite" type="Sprite" parent="StarBackground1/ParallaxLayer"]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StarBackground2" type="ParallaxBackground" parent="."]
+script = ExtResource( 4 )
+speed = 40
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="StarBackground2"]
+motion_mirroring = Vector2( 0, 160 )
+
+[node name="Sprite" type="Sprite" parent="StarBackground2/ParallaxLayer"]
+texture = ExtResource( 2 )
+centered = false
+
+[node name="StarBackground3" type="ParallaxBackground" parent="."]
+script = ExtResource( 4 )
+speed = 60
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="StarBackground3"]
+visible = false
+motion_mirroring = Vector2( 0, 160 )
+
+[node name="Sprite" type="Sprite" parent="StarBackground3/ParallaxLayer"]
+visible = false
+texture = ExtResource( 3 )
+centered = false
