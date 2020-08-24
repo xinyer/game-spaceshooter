@@ -1,5 +1,6 @@
 extends Sprite
 
+export(bool) var change_position = true
 
 signal node_instance(bullet, pos)
 
@@ -18,20 +19,21 @@ func _exit_tree():
 	pass
 
 func _process(delta):
-	var mouse_position = get_viewport().get_mouse_position()
-	
-	if mouse_position.x < 0:
-		mouse_position.x = 0
-	elif mouse_position.x > 90:
-		mouse_position.x = 90
-	
-	if mouse_position.y < 0:
-		mouse_position.y = 0
-	elif mouse_position.y > 160:
-		mouse_position.y = 160
+	if change_position:
+		var mouse_position = get_viewport().get_mouse_position()
+		
+		if mouse_position.x < 0:
+			mouse_position.x = 0
+		elif mouse_position.x > 90:
+			mouse_position.x = 90
+		
+		if mouse_position.y < 0:
+			mouse_position.y = 0
+		elif mouse_position.y > 160:
+			mouse_position.y = 160
 			
-	global_position.x = lerp(global_position.x, mouse_position.x, 0.1)
-	global_position.y = lerp(global_position.y, mouse_position.y, 0.1)
+		global_position.x = lerp(global_position.x, mouse_position.x, 0.1)
+		global_position.y = lerp(global_position.y, mouse_position.y, 0.1)
 	pass
 
 
