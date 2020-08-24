@@ -16,6 +16,8 @@ func _ready():
 
 func _process(delta):
 	global_position.y += speed * delta
+	if global_position.y > 200:
+		queue_free()
 	pass
 
 
