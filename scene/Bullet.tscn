@@ -9,6 +9,7 @@ extents = Vector2( 5, 2 )
 [node name="Bullet" type="Sprite"]
 position = Vector2( -1, 156 )
 rotation = 1.5708
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
