@@ -12,10 +12,15 @@ signal node_instance(destroy_paticles, position)
 func _ready():
 	if Global.world != null:
 		connect("node_instance", Global.world, "_node_instance")
+	
+	if $BloodProgressBar != null:
+		$BloodProgressBar.max_value = health
 	pass
 
 func _process(delta):
 	global_position.y += speed * delta
+	if $BloodProgressBar != null:
+		$BloodProgressBar.value = health
 	if global_position.y > 200:
 		queue_free()
 	pass
