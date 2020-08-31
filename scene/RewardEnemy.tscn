@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/RewardEnemy.png" type="Texture" id=1]
-[ext_resource path="res://scene/Reward.gd" type="Script" id=2]
+[ext_resource path="res://script/RewardEnemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 4, 6 )
@@ -16,7 +16,9 @@ color = Color( 0, 0, 0, 0.290196 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="HitBox" type="Area2D" parent="." groups=[
+"Enemy",
+]]
 collision_layer = 4
 collision_mask = 3
 
