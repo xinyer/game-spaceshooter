@@ -41,10 +41,10 @@ margin_left = 56.6876
 margin_top = 1.85529
 margin_right = 87.6876
 margin_bottom = 10.8553
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_shadow = Color( 0.133333, 0.133333, 0.133333, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_offset_y = 1
+custom_fonts/font = SubResource( 1 )
 text = "0"
 align = 2
 valign = 1
@@ -58,5 +58,6 @@ current = true
 script = ExtResource( 12 )
 
 [node name="ScreenShake" parent="Camera2D" instance=ExtResource( 11 )]
+
 [connection signal="node_instance" from="Player" to="." method="_node_instance"]
 [connection signal="timeout" from="EnemyTimer" to="." method="_on_EnemyTimer_timeout"]
